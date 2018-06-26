@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  ircd:
+    restart: always
+    image: ircd-ag
+    build: ./
+    container_name: ircd
+    ports:
+      - "7667:7667"
+    volumes:
+      - "/docker/volumes/ircd/unrealircd/conf:/home/unrealircd/unrealircd/conf"
+      - "/docker/volumes/ircd/unrealircd/logs:/home/unrealircd/unrealircd/logs"
+      - "/docker/volumes/ircd/bitlbee/etc:/etc/bitlbee"
+      - "/docker/volumes/ircd/bitlbee/lib:/var/lib/bitlbee"
+      - "/docker/volumes/ircd/znc/lib:/var/lib/znc/"
+
